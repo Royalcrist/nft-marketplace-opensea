@@ -14,6 +14,7 @@ interface NftCardProps extends FlexProps {
   price: string;
   image: string;
   hideBuyButton?: boolean;
+  isUnlisted?: boolean;
 }
 
 const NftCard = ({
@@ -21,6 +22,7 @@ const NftCard = ({
   image,
   price,
   hideBuyButton,
+  isUnlisted,
   ...props
 }: NftCardProps) => {
   return (
@@ -62,7 +64,7 @@ const NftCard = ({
             {name}
           </Text>
 
-          <Text noOfLines={1}>{price} ETH</Text>
+          <Text noOfLines={1}>{isUnlisted ? "Unlisted" : price}</Text>
         </Flex>
         {!hideBuyButton && (
           <Button pointerEvents="none" height="100%">

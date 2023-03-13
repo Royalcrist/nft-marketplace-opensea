@@ -210,6 +210,7 @@ export default function Home() {
                       image={nft.imageUrl}
                       price={getNftPrice(nft)}
                       onClick={handleNftClick(nft)}
+                      isUnlisted={nft.sellOrders?.length === 0}
                     />
                   ))}
                 </Grid>
