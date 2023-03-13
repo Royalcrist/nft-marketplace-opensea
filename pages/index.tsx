@@ -13,15 +13,12 @@ import {
   Heading,
   Icon,
   IconButton,
-  Image,
   Input,
   InputGroup,
   InputLeftElement,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalOverlay,
   Text,
   useDisclosure,
@@ -48,7 +45,6 @@ export default function Home() {
     data: nfts,
     fetchData: fetchNfts,
     fetchNextPage,
-    isLoading,
   } = useNfts(contractAddress);
   const [selectedNft, setSelectedNft] = useState<OpenSeaAsset | undefined>();
 
@@ -77,12 +73,6 @@ export default function Home() {
     setSelectedNft(nft);
     onOpen();
   };
-
-  useEffect(() => {
-    if (nfts?.length) {
-      console.log(nfts[0]);
-    }
-  }, [nfts]);
 
   return (
     <>
